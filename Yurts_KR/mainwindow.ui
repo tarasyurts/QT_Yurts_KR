@@ -35,7 +35,7 @@
           <x>9</x>
           <y>19</y>
           <width>301</width>
-          <height>128</height>
+          <height>136</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -117,11 +117,61 @@
      <x>0</x>
      <y>0</y>
      <width>362</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuApp">
+    <property name="title">
+     <string>Меню</string>
+    </property>
+    <widget class="QMenu" name="menuArea">
+     <property name="title">
+      <string>Площа</string>
+     </property>
+     <addaction name="separator"/>
+     <addaction name="actionTriangle"/>
+     <addaction name="actionRectangle"/>
+    </widget>
+    <widget class="QMenu" name="menuVolume">
+     <property name="title">
+      <string>Об'єм</string>
+     </property>
+     <addaction name="actionPrism"/>
+     <addaction name="actionCone"/>
+    </widget>
+    <addaction name="actionExit"/>
+    <addaction name="separator"/>
+    <addaction name="menuArea"/>
+    <addaction name="menuVolume"/>
+   </widget>
+   <addaction name="menuApp"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionTriangle">
+   <property name="text">
+    <string>Трикутник</string>
+   </property>
+  </action>
+  <action name="actionPrism">
+   <property name="text">
+    <string>Призма</string>
+   </property>
+  </action>
+  <action name="actionCone">
+   <property name="text">
+    <string>Конус</string>
+   </property>
+  </action>
+  <action name="actionRectangle">
+   <property name="text">
+    <string>Прямокутник</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

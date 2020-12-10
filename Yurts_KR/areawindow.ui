@@ -87,7 +87,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="getFromFileBtn">
+  <widget class="QPushButton" name="readFromFileBtn">
    <property name="geometry">
     <rect>
      <x>240</x>

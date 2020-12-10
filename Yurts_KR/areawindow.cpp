@@ -6,6 +6,7 @@ AreaWindow::AreaWindow(QWidget *parent) :
     ui(new Ui::AreaWindow)
 {
     ui->setupUi(this);
+    fileIO = new FileIO();
 }
 
 AreaWindow::~AreaWindow()
@@ -26,19 +27,25 @@ void AreaWindow::setData(QString str){
 
 void AreaWindow::on_calcBtn_clicked()
 {
-    double result;
+
+
     if(figureName == "Rectangle")
         result = ui->firSpinBox->value() * ui->secSpinBox->value();
     else if(figureName == "Triangle")
-        result = 1/2 * ui->firSpinBox->value() * ui->secSpinBox->value();
+        result = 0.5 * ui->firSpinBox->value() * ui->secSpinBox->value();
+
 
     QString message = "Результат = " + QString::number(result) +  " .Зберегти результут у файл?";
 
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Result", message,
                                     QMessageBox::Yes|QMessageBox::No);
-      if (reply == QMessageBox::Yes) {
+    if (reply == QMessageBox::Yes)
+        fileIO->saveResultToFile(this, result);
+}
 
-
-      } else {
-      }
+void AreaWindow::on_readFromFileBtn_clicked()
+{
+    auto fields = fileIO->readFieldsFromFile(this);
+    ui->firSpinBox->setValue(fields.at(0));
+    ui->secSpinBox->setValue(fields.at(1));
 }

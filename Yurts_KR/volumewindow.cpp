@@ -6,6 +6,7 @@ VolumeWindow::VolumeWindow(QWidget *parent) :
     ui(new Ui::VolumeWindow)
 {
     ui->setupUi(this);
+    fileIO = new FileIO();
 }
 
 VolumeWindow::~VolumeWindow()
@@ -27,7 +28,6 @@ void VolumeWindow::setData(QString str){
 
 void VolumeWindow::on_calsBtn_clicked()
 {
-    double result;
     if(figureName == "Prism")
         result = ui->firSpinBox->value() * ui->secSpinBox->value();
     else if(figureName == "Cone")
@@ -37,9 +37,13 @@ void VolumeWindow::on_calsBtn_clicked()
 
     QMessageBox::StandardButton reply = QMessageBox::question(this, "Result", message,
                                     QMessageBox::Yes|QMessageBox::No);
-      if (reply == QMessageBox::Yes) {
+    if (reply == QMessageBox::Yes)
+        fileIO->saveResultToFile(this, result);
+}
 
-
-      } else {
-      }
+void VolumeWindow::on_readFromFileBtn_clicked()
+{
+    auto fields = fileIO->readFieldsFromFile(this);
+    ui->firSpinBox->setValue(fields.at(0));
+    ui->secSpinBox->setValue(fields.at(1));
 }

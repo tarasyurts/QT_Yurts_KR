@@ -10,13 +10,14 @@ CONFIG += c++11
 
 SOURCES += \
     areawindow.cpp \
+    fileio.cpp \
     main.cpp \
     mainwindow.cpp \
     volumewindow.cpp
 
 HEADERS += \
     areawindow.h \
-    geomfigures.h \
+    fileio.h \
     mainwindow.h \
     volumewindow.h
 

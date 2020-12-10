@@ -3,7 +3,7 @@
 
 #include <QDialog>
 #include <QMessageBox>
-#include "geomfigures.h"
+#include "fileio.h"
 
 namespace Ui {
 class AreaWindow;
@@ -18,13 +18,18 @@ public:
     ~AreaWindow();
 
     void setData(QString str);
+
     QString figureName;
+    double result;
 
 private slots:
     void on_calcBtn_clicked();
 
+    void on_readFromFileBtn_clicked();
+
 private:
     Ui::AreaWindow *ui;
+    FileIO* fileIO;
 };
 
 #endif // AREAWINDOW_H

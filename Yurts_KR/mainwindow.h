@@ -3,8 +3,6 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
-#include "geomfigures.h"
-
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,5 +21,10 @@ private:
 
 private slots:
     void on_submitBtn_clicked();
+    void on_actionExit_triggered();
+    void on_actionTriangle_triggered();
+    void on_actionPrism_triggered();
+    void on_actionCone_triggered();
+    void on_actionRectangle_triggered();
 };
 #endif // MAINWINDOW_H
